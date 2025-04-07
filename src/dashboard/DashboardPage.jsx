@@ -1,7 +1,8 @@
-export const DashboardPage = () =>{
-    return(
-        <div>
-            DashboardPage
-        </div>
+
+export const DashboardPage = () => {
+    return (
+      <div>
+        DashboardPage
+      </div>
     )
-}
+  }

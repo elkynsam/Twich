@@ -1,8 +1,7 @@
+
 export const validationAvatarUrl = (url) => {
     const regex = /^(ftp|http|https):\/\/[^ "]+$/;
-    return regex.test(uel);
-
+    return regex.test(url);
 }
 
-
-export const avatarUrlValidationMessage = 'esta url no es correcta'
+export const avatarUrlValidationMessage = 'Esta no es una URL valida';

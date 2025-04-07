@@ -1,14 +1,14 @@
-import axios from 'axios';
+import axios from "axios";
 
 const apiClient = axios.create({
-    baseURL: "http://localhost:5173/",
-    tiemeout: 5000
-}) 
+    baseURL: "http://127.0.0.1:8080/twitch/v1",
+    timeout: 5000
+})
 
-export const login = async (data )=>{
+export const login = async (data) => {
     try {
-        return await apiClient.post('/auth/login', data)
-    } catch (e) {
+        return await apiClient.post('/auth/login', data);
+    }catch (e) {
         return {
             error: true,
             e
