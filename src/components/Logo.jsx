@@ -1,10 +1,10 @@
-import logo from '../assets/img/logoKinal.png'
+import logo from '../assets/img/EscudoPeque.svg';
 
 export const Logo = ({text}) => {
-  return (
-    <div className="auth-form-logo-container">
-        <img src={logo} alt="Escudo Kinal"/>
-        <span>{text}</span>
-    </div>
-  )
+    return (
+        <div className='auth-from-logo-container'>
+            <img src={logo} alt="Logo Kinal" />
+            <span>{text}</span>
+        </div>
+    )
 }

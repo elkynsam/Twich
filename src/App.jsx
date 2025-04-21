@@ -1,7 +1,6 @@
-import { useRoutes } from "react-router-dom";
-import { Toaster } from "react-hot-toast";
-import routes from "./routes.jsx"
-
+import { useRoutes } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
+import routes from './routes';
 
 export const App = () => {
 
@@ -11,7 +10,7 @@ export const App = () => {
     <>
       {element}
       <Toaster
-        position="bottom-right"
+        position='bottom-right'
         reverseOrder={false}
       />
     </>

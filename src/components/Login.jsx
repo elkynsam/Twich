@@ -1,17 +1,17 @@
-import { useState } from "react";
-import { Logo } from "./Logo";
-import { Input } from "./Input";
+import { useState } from 'react';
+import { Logo } from './Logo';
+import { Input } from './Input';
 import {
     emailValidationMessage,
     validateEmail,
     validatePasswordMessage,
     validatePassword
-} from "../shared/validators";
-import { useLogin } from "../shared/hooks"
+} from '../shared/validators';
+import { useLogin } from '../shared/hooks';
 
 export const Login = ({ switchAuthHandler }) => {
-    
-    const { login, isLoading } = useLogin()
+
+    const { login, isLoading } = useLogin();
 
     const [formState, setFormState] = useState({
         email: {
@@ -24,7 +24,7 @@ export const Login = ({ switchAuthHandler }) => {
             isValid: false,
             showError: false
         }
-    });
+    })
 
     const handleInputValueChange = (value, field) => {
         setFormState((prevState) => ({
@@ -38,7 +38,7 @@ export const Login = ({ switchAuthHandler }) => {
 
     const handleInputValidationOnBlur = (value, field) => {
         let isValid = false;
-        switch(field) {
+        switch(field){
             case 'email':
                 isValid = validateEmail(value);
                 break;
@@ -48,14 +48,14 @@ export const Login = ({ switchAuthHandler }) => {
             default:
                 break;
         }
-        setFormState((prevState) =>({
+        setFormState((prevState) => ({
             ...prevState,
             [field]: {
                 ...prevState[field],
                 isValid,
                 showError: !isValid
             }
-        }));
+        }))
     }
 
     const handleLogin = (event) => {
@@ -63,12 +63,12 @@ export const Login = ({ switchAuthHandler }) => {
         login(formState.email.value, formState.password.value)
     }
 
-    const isSubmitButtonDisabled = isLoading || !formState.email.isValid || !formState.password.isValid;
+    const isSubmitButtonDisabled = isLoading || !formState.email.isValid || !formState.password.isValid
 
     return (
-        <div className="login-container">
+        <div className='login-container'>
             <Logo text={'Login Kinal Cast'}/>
-            <form className="auth-form">
+            <form className='auth-form'>
                 <Input
                     field='email'
                     label='Email'
@@ -81,7 +81,7 @@ export const Login = ({ switchAuthHandler }) => {
                 />
                 <Input
                     field='password'
-                    label='Password'
+                    label='password'
                     value={formState.password.value}
                     onChangeHandler={handleInputValueChange}
                     type='password'
@@ -90,11 +90,11 @@ export const Login = ({ switchAuthHandler }) => {
                     validationMessage={validatePasswordMessage}
                 />
                 <button onClick={handleLogin} disabled={isSubmitButtonDisabled}>
-                    Log in
+                    Log In
                 </button>
             </form>
-            <span onClick={switchAuthHandler} className="auth-form-swith-label">
-                Don't have an account? Sign up
+            <span onClick={switchAuthHandler} className='auth-form-switch-label'>
+                Don't have an account? Sign Up
             </span>
         </div>
     )
